@@ -1,0 +1,39 @@
+{% include 'pervez/navbar.html' %}
+
+
+ 
+<section class="text-gray-500 bg-gray-900 body-font overflow-hidden">
+    <div class="container px-5 pt-24 pb-64 mx-auto">
+        <div class="flex flex-col text-center w-full mb-20">
+            <h1 class="sm:text-4xl text-3xl font-medium title-font mb-2 text-gray-200">Question and Answers</h1>
+            <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Whatever cardigan tote bag tumblr hexagon brooklyn
+                asymmetrical.</p>
+
+        </div>
+        <div class="flex flex-wrap -m-4">
+            {% for sub in subjects %}
+            <div class="p-4 xl:w-1/4 md:w-1/2 w-full">
+                <div class="h-full p-6 rounded-lg border-2 border-gray-300 flex flex-col relative overflow-hidden">
+                    <h1 class="text-5xl text-gray-200 pb-4 mb-4 border-b border-gray-200 leading-none">{{ sub }}</h1>
+                        {% for question in questionsanswers %}
+                        {% if question.clss == cl %}
+                            {% if question.sub == sub %}
+                                <a href="{{ question.question.url }}" download class="text-green-700 hover:text-indigo-700">{{ question.question_desc }}</a>
+                            {% endif %}
+                        {% endif %}
+                        {% endfor %}
+                        <br><hr><br>
+                        {% for question in questionsanswers %}
+                        {% if question.clss == cl %}
+                            {% if question.sub == sub %}
+                                <a href="{{ question.answers.url }}" download class="text-green-700 hover:text-indigo-700">{{ question.answer_desc }}</a>
+                            {% endif %}
+                        {% endif %}
+                        {% endfor %}
+                   
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>

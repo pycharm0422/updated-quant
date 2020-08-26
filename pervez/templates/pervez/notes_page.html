@@ -1,0 +1,30 @@
+{% include 'pervez/navbar.html' %}
+
+
+
+<section class="text-gray-500 bg-gray-900 body-font">
+    <div class="container px-5 pb-24 pt-40 mx-auto">
+        
+        {% for class in classes %}
+
+        <a href="{% url 'notes' cls=class %}">
+            <div class="flex items-center lg:w-3/5 mx-auto border-b pb-10 mb-10 border-gray-200 sm:flex-row flex-col">
+                <div>
+                    <img src="https://cdn.pixabay.com/photo/2014/09/07/15/35/number-437925_960_720.jpg"  class="sm:w-32 sm:h-32 h-20 w-20 sm:mr-10 inline-flex items-center justify-center rounded-full bg-indigo-900 text-indigo-500 flex-shrink-0" alt="">
+                </div>
+                <div class="flex-grow sm:text-left text-center mt-6 sm:mt-0">
+                    <h2 class="text-gray-200 text-lg title-font font-medium mb-2">Class {{ class }}</h2>
+                    <p class="leading-relaxed text-base">Blue bottle crucifix vinyl post-ironic four dollar toast vegan
+                 
+                </div>
+            </div>
+        </a>
+
+        {% endfor %}
+
+
+
+        <button
+            class="flex mx-auto mt-20 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg"><a href="{% url 'home-page' %}">Back to home page</a></button>
+    </div>
+</section>
